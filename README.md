@@ -65,8 +65,8 @@ The application should now be running on `http://127.0.0.1:5000`.
 
 ## Usage
 
-Run Application/index.html to register users and create secret keys for them
+Run **Application/index.html** to register users and create secret keys for them
 
-Run Authentication_app/index.html to add secret keys and using them to generate TOTPs
+Run **Authentication_app/index.html** to add secret keys and using them to generate TOTPs
 
 
