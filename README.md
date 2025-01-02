@@ -8,32 +8,40 @@ This project is a Flask-based authentication application that supports user regi
 - [Project Structure](#project-structure)
 - [Setup](#setup)
 - [Usage](#usage)
-- [Endpoints](#endpoints)
-- [License](#license)
 
 ## Project Structure
 
 ```
-authentication_application/
-│
-├── app.py                    # Main application file
-├── users.csv                 # Stores registered users
-├── keys.csv                  # Stores TOTP keys
-├── templates/
-│   ├── index.html            # Main page for signing in and validating TOTPs
-│   └── authenticate.html     # Page for adding secret keys and generating TOTPs
-├── static/
-│   └── styles.css            # (Optional) Stylesheet for your HTML templates
-├── backend.py                # Backend logic for handling TOTP (LM_TOTP class)
-└── README.md                 # This README file
+├── Application
+│   ├── css
+│   │   ├── style.css
+│   ├── index.html  ###allows the register, login, generate secret keys and validate TOTPs 
+│   ├── js
+│   │   ├── index.js
+│   │   ├── otp.js
+│   │   ├── script.js
+│   ├── otp.html
+├── Authentication_app
+│   ├── css
+│   │   ├── style.css
+│   ├── index.html    ###allows the user to add secret keys and generate TOTPs
+│   ├── js
+│   │   ├── app.js
+├── Flask_application
+│   ├── app.py ## flask application that handles login register and totp generation and validation requests
+│   ├── app_debug.py  ## flask in debug mode
+│   ├── backend.py ### backend classes to generate, validate TOTPs
+│   ├── keys.csv  ### to store users login info (for the server)
+│   ├── users.csv ### to store secret keys (for the client)
+├── requirements.txt
 ```
 
 ## Setup
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/authentication_application.git
-   cd authentication_application
+   git clone https://github.com/OmarTheProgrammerrr/TOTP_authentication_applicatin.git
+   cd TOTP_authentication_applicatin
    ```
 
 2. **Create a virtual environment and activate it:**
@@ -49,6 +57,7 @@ authentication_application/
 
 4. **Run the application:**
    ```bash
+   cd Flask_application
    python app.py
    ```
 
@@ -56,61 +65,8 @@ The application should now be running on `http://127.0.0.1:5000`.
 
 ## Usage
 
-### Registration and Login
+Run Application/index.html to register users and create secret keys for them
 
-1. **Register a new user:**
-   - Send a POST request to `/register` with `username`, `password`, `totp`, and `secret`.
+Run Authentication_app/index.html to add secret keys and using them to generate TOTPs
 
-2. **Login:**
-   - Send a POST request to `/login` with `username` and `password`.
 
-3. **Verify TOTP:**
-   - Send a POST request to `/verify_totp` with `username` and `totp_code`.
-
-### Managing TOTP Keys
-
-1. **Get all keys:**
-   - Send a GET request to `/keys`.
-
-2. **Add a new key:**
-   - Send a POST request to `/add-key` with `name` and `secret`.
-
-3. **Delete a key:**
-   - Send a DELETE request to `/delete-key/<index>` with the index of the key to be deleted.
-
-4. **Generate TOTP code:**
-   - Send a GET request to `/generate-totp/<index>` with the index of the key.
-
-## Endpoints
-
-### User Management
-
-- **`GET /generate-secret`**
-  - Generates a new TOTP secret.
-
-- **`POST /register`**
-  - Registers a new user with `username`, `password`, `totp`, and `secret`.
-
-- **`POST /login`**
-  - Logs in a user with `username` and `password`.
-
-- **`POST /verify_totp`**
-  - Verifies a TOTP code with `username` and `totp_code`.
-
-### Key Management
-
-- **`GET /keys`**
-  - Retrieves all stored TOTP keys.
-
-- **`POST /add-key`**
-  - Adds a new TOTP key with `name` and `secret`.
-
-- **`DELETE /delete-key/<index>`**
-  - Deletes a TOTP key at the specified index.
-
-- **`GET /generate-totp/<index>`**
-  - Generates a TOTP code for the key at the specified index.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
