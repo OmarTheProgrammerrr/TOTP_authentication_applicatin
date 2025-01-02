@@ -1,0 +1,7 @@
+Flask==3.1.0
+Flask_Cors==5.0.0
+pandas==2.2.3
+pyotp==2.9.0
+bcrypt
+torch==2.5.1
+transformers==4.47.1

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication App</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Authentication App</h1>
+        <div id="add-key">
+            <h2>Add Secret Key</h2>
+            <form id="add-key-form">
+                <label for="key-name">Key Name:</label>
+                <input type="text" id="key-name" name="key-name" required>
+                <label for="secret-key">Secret Key:</label>
+                <input type="text" id="secret-key" name="secret-key" required>
+                <button type="submit">Add Key</button>
+            </form>
+        </div>
+
+        <div id="manage-keys">
+            <h2>Manage Keys</h2>
+            <ul id="keys-list"></ul>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register / Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/index.js" defer></script>
+</head>
+<body>
+    <div id="container">
+        <h1>Login existing account</h1>
+
+        <div id="register-section" style="display: none;">
+            <form id="register-form">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Next</button>
+            </form>
+            <p class="toggle" id="toggle-to-login">Already have an account? Login here</p>
+        </div>
+
+        <div id="totp-section" style="display: none;">
+            <p id="secret-key-display"></p>
+            <form id="totp-form">
+                <label for="totp">Enter TOTP</label>
+                <input type="text" id="totp" name="totp" required>
+                <button type="submit">Validate</button>
+            </form>
+        </div>
+
+        <div id="login-section">
+            <form id="login-form">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p class="toggle" id="toggle-to-register">Don't have an account? Register here</p>
+        </div>
+    </div>
+</body>
+</html>
